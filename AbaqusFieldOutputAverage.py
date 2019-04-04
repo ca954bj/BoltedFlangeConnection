@@ -1,7 +1,7 @@
 
 # ==================================== Input ===================================
-infile = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C3-2FEStrainG12.txt"
-outfile = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C3-2FEStrainG12Avg.txt"
+infile = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C2-2FEStrainG2.txt"
+outfile = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C2-2FEStrainG2Avg.txt"
 Tol = 1e-6
 
 # ==============================================================================
