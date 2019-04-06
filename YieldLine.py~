@@ -119,10 +119,9 @@ class YieldLines:
 	def MomentSum(self):
 		return self.MomentSum
 		
-h = Symbol('h')
-
 # Problem C2 103.9kN
-'''A = Node(0, 35.0, 0)
+h = Symbol('h')
+A = Node(0, 35.0, 0)
 B = Node(35.0, 0, 0)
 C = Node(35.0, 35.0, 0)
 E = Node(17.5, 92.5, h)
@@ -148,64 +147,9 @@ Moment = 4*YieldLines([AC, BC, CE, CF, EG, EF, FH], 2996.1, h).MomentSum
 print(Moment)
 
 Moment = Moment.evalf(subs={h:4.0})
-print("For C2, the tensile capacity is %f" % (Moment/1000))'''
+print("For C2, the tensile capacity is %f" % (Moment/1000))
 
-# Problem C3 Case1 141.3kN
-'''A = Node(0, 0, 0)
-D = Node(35.0, 35.0, 0)
-E = Node(0, 35.0, 0)
-B = Node(35.0, 0, 0)
-F = Node(0, 55.0, h)
-G = Node(55.0, 55.0, h)
-C = Node(95.0, 55.0, h)
-
-BD = Line(B, D)
-DE = Line(D, E)
-DG = Line(D, G)
-FG = Line(F, G)
-CG = Line(C, G)
-CD = Line(C, D)
-BC = Line(B, C)
-
-ABDE = Plane([BD, DE])
-BCD = Plane([BC, CD, BD])
-CDG = Plane([CD, DG, CG])
-EDFG = Plane([DE, DG, FG])
-
-Moment = 4*YieldLines([DE, BD, DG, FG, CD, CG, BC], 2996.1, h).MomentSum
-print(Moment)
-Moment = Moment.evalf(subs={h:4.0})
-print("For C3, the tensile capacity is %f" % (Moment/1000))'''
-
-# Problem C3 Case2 163.6kN
-
-A = Node(0, 0, 0)
-D = Node(35.0, 35.0, 0)
-E = Node(0, 35.0, 0)
-B = Node(35.0, 0, 0)
-F = Node(0, 55.0, h)
-G = Node(55.0, 55.0, h)
-C = Node(95.0, 55.0, h)
-
-BD = Line(B, D)
-DE = Line(D, E)
-DG = Line(D, G)
-FG = Line(F, G)
-CG = Line(C, G)
-BG = Line(B, G)
-BC = Line(B, C)
-
-ABDE = Plane([BD, DE])
-BCG = Plane([BC, CG, BG])
-BDG = Plane([BD, DG, BG])
-EDFG = Plane([DE, DG, FG])
-
-Moment = 4*YieldLines([DE, BD, DG, FG, BG, CG, BC], 2996.1, h).MomentSum
-print(Moment)
-Moment = Moment.evalf(subs={h:4.0})
-print("For C3, the tensile capacity is %f" % (Moment/1000))
-
-
+				
 				
 				
 
