@@ -61,7 +61,7 @@ elif style == 'BlackWithMarker':
 	
 	firstlegend = plt.legend(handles=[p1, p2, p3], loc=1, bbox_to_anchor=(0.514, 0.38), prop=fontprop, title='Exp1:', frameon=False)
 	thirdlegend = plt.legend(handles=[p12, p22, p32], loc=1, bbox_to_anchor=(0.757, 0.38), prop=fontprop, title='Exp2:', frameon=False)
-	secondlegend = plt.legend(handles=[p1r, p2r, p3r], loc=1, bbox_to_anchor=(1.0, 0.38), prop=fontprop, title='FE:', frameon=False)
+	secondlegend = plt.legend(handles=[p1r, p2r, p3r], loc=1, bbox_to_anchor=(1.0, 0.38), prop=fontprop, title='FEM:', frameon=False)
 	plt.gca().add_artist(firstlegend)
 	plt.gca().add_artist(secondlegend)
 	plt.gca().add_artist(thirdlegend)
@@ -69,7 +69,7 @@ elif style == 'BlackWithMarker':
 elif style == 'BlackWithoutMarker':
 	p1, = plt.plot(data1.Uy1, data1.Fy1, color='black', label='Exp1')
 	p12, = plt.plot(data12.Uy1, data12.Fy1, color='black', label='Exp2', linestyle='-.')
-	p1r, = plt.plot(data1f.Uy1, data1f.Fy1, color='black', label='FE', linestyle='--')
+	p1r, = plt.plot(data1f.Uy1, data1f.Fy1, color='black', label='FEM', linestyle='--')
 	p2, = plt.plot(data2.Uy1, data2.Fy1, color='black', label='C2')
 	p22, = plt.plot(data22.Uy1, data22.Fy1, color='black', label='C2', linestyle='-.')
 	p2r, = plt.plot(data2f.Uy1, data2f.Fy1, color='black', label='C2', linestyle='--')
@@ -112,14 +112,14 @@ elif style == 'BlackWithMarker':
 	p6r, = plt.plot(data6f.Uy1, data6f.Fy1, color='black', label='C6', linestyle='--', marker='o', markersize=10, markevery=(11, 5))
 
 	fourthlegend = plt.legend(handles=[p4, p5, p6], loc=1, bbox_to_anchor=(0.757, 0.38), prop=fontprop, title='Exp:', frameon=False)
-	fifthlegend = plt.legend(handles=[p4r, p5r, p6r], loc=1, bbox_to_anchor=(1.0, 0.38), prop=fontprop, title='FE:', frameon=False)
+	fifthlegend = plt.legend(handles=[p4r, p5r, p6r], loc=1, bbox_to_anchor=(1.0, 0.38), prop=fontprop, title='FEM:', frameon=False)
 
 	plt.gca().add_artist(fourthlegend)
 	plt.gca().add_artist(fifthlegend)
 
 elif style == 'BlackWithoutMarker':
 	p4, = plt.plot(data4.Uy1, data4.Fy1, color='black', label='Exp1')
-	p4r, = plt.plot(data4f.Uy1, data4f.Fy1, color='black', label='FE', linestyle='--')
+	p4r, = plt.plot(data4f.Uy1, data4f.Fy1, color='black', label='FEM', linestyle='--')
 	p5, = plt.plot(data5.Uy1, data5.Fy1, color='black', label='C5')
 	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='C5', linestyle='--')
 	p6, = plt.plot(data6.Uy1, data6.Fy1, color='black', label='C6')
