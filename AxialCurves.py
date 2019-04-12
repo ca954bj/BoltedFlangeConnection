@@ -9,10 +9,13 @@ inputfile32 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C
 inputfile3f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/sf2fem.txt"
 
 inputfile4 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/NoSF.txt"
+inputfile42 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C4-2ExpLoadDisp.txt"
 inputfile4f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/NoSFfem.txt"
 inputfile5 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/sf81.txt"
 inputfile5f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/sf81fem.txt"
+inputfile52 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C5-2ExpLoadDisp.txt"
 inputfile6 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/sf82.txt"
+inputfile62 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2ExpLoadDisp.txt"
 inputfile6f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/sf82fem.txt"
 
 style = 'BlackWithoutMarker'
@@ -31,10 +34,13 @@ data3 = readfile(inputfile3, difflimit)
 data32 = readfile(inputfile32, difflimit)
 data3f = readfile(inputfile3f, difflimit)
 data4 = readfile(inputfile4, difflimit)
+data42 = readfile(inputfile42, difflimit)
 data4f = readfile(inputfile4f, difflimit)
 data5 = readfile(inputfile5, difflimit)
+data52 = readfile(inputfile52, difflimit)
 data5f = readfile(inputfile5f, difflimit)
 data6 = readfile(inputfile6, difflimit)
+data62 = readfile(inputfile62, difflimit)
 data6f = readfile(inputfile6f, difflimit)
 
 plt.figure(figsize=(11, 5))
@@ -119,13 +125,16 @@ elif style == 'BlackWithMarker':
 
 elif style == 'BlackWithoutMarker':
 	p4, = plt.plot(data4.Uy1, data4.Fy1, color='black', label='Exp1')
+	p42, = plt.plot(data42.Uy1, data42.Fy1, color='black', label='Exp2', linestyle='-.')
 	p4r, = plt.plot(data4f.Uy1, data4f.Fy1, color='black', label='FEM', linestyle='--')
-	p5, = plt.plot(data5.Uy1, data5.Fy1, color='black', label='C5')
-	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='C5', linestyle='--')
+	p5, = plt.plot(data5.Uy1, data5.Fy1, color='black', label='Exp1')
+	p52, = plt.plot(data52.Uy1, data52.Fy1, color='black', label='Exp2', linestyle='-.')
+	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='FE', linestyle='--')
 	p6, = plt.plot(data6.Uy1, data6.Fy1, color='black', label='C6')
+	p62, = plt.plot(data62.Uy1, data62.Fy1, color='black', label='C6', linestyle='-.')
 	p6r, = plt.plot(data6f.Uy1, data6f.Fy1, color='black', label='C6', linestyle='--')
 
-	fourthlegend = plt.legend(handles=[p4, p4r], loc=1, bbox_to_anchor=(1.0, 0.3), prop=fontprop, frameon=False)
+	fourthlegend = plt.legend(handles=[p5, p52, p5r], loc=1, bbox_to_anchor=(1.0, 0.3), prop=fontprop, frameon=False)
 	plt.gca().add_artist(fourthlegend)
 
 plt.grid(linestyle='--')
