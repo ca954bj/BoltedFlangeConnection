@@ -25,10 +25,10 @@ inputfile6exp = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4
 inputfile7 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C2-2FEStrainG2Avg.txt"
 inputfile7exp = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C2-2ExpStrainG2.txt"
 
-inputfile8 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2FEStrainG13aAvg.txt"
+inputfile8 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2FEStrainG13.txt"
 inputfile8exp = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2ExpStrainG13.txt"
 
-inputfile9 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2FEStrainG14Avg.txt"
+inputfile9 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2FEStrainG14.txt"
 inputfile9exp = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C6-2ExpStrainG14.txt"
 
 inputfile10 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C5-2FEStrainG14Avg.txt"
@@ -117,12 +117,12 @@ plt.legend(handles=[p2, p2e2, p4, p4e2, p5, p5e], loc=1, bbox_to_anchor=(0.53, 0
 ax2 = plt.subplot(2, 2, 3)
 
 # Bolts8 C6-1 G7,FEM
-p1, = plt.plot(data1.Fy1, data1load.Fy1, color='black', linestyle = '--', label='C6 G7 FEM')
+p1, = plt.plot(data8.Uy1[0:-4], data8.Fy1[0:-4], color='black', linestyle = '--', label='C6 G7 FEM')
 p1e, = plt.plot(data1exp.Uy1[0:-550], data1exp.Fy1[0:-550], color='0', label='C6 G7 EXP', linestyle='-')
 
-'''# Bolts8 C6-2 G13 FEM
-p8, = plt.plot(data8.Fy1, data1load.Fy1, color='black', linestyle = '-', label='FEM')
-p8e, = plt.plot(data8exp.Uy1, data8exp.Fy1, color='1', marker='o', markersize=MarkerS, markevery=(60, 60), markerfacecolor = '0', markeredgecolor = '0', label='EXP1')'''
+# Bolts8 C6-2 G13 FEM
+#p8, = plt.plot(data8.Uy1, data8.Fy1, color='black', linestyle = '--', label='C6 G13 FEM')
+#p8e, = plt.plot(data8exp.Uy1, data8exp.Fy1, color='0', label='C6 G13 EXP')
 
 # Bolts8 C5-2 G15
 temp1 = [i/1000000 for i in data11exp.Uy1]
@@ -169,7 +169,7 @@ ax2 = plt.subplot(2, 2, 4)
 
 # Bolts8 C6-2 G14 FEM
 temp1 = [i/1000000 for i in data9exp.Uy1]
-p9, = plt.plot(data9.Fy1, data1load.Fy1, color='black', linestyle = '--', label='C6 G14 FEM')
+p9, = plt.plot(data9.Uy1, data9.Fy1, color='black', linestyle = '--', label='C6 G14 FEM')
 p9e, = plt.plot(temp1, data9exp.Fy1, color='0', label='C6 G14 EXP', linestyle = '-')
 
 plt.xlim(-0.015,0)
