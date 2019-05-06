@@ -129,7 +129,7 @@ elif style == 'BlackWithoutMarker':
 	p4r, = plt.plot(data4f.Uy1, data4f.Fy1, color='black', label='FEM', linestyle='--')
 	p5, = plt.plot(data5.Uy1, data5.Fy1, color='black', label='Exp1')
 	p52, = plt.plot(data52.Uy1, data52.Fy1, color='black', label='Exp2', linestyle='-.')
-	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='FE', linestyle='--')
+	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='FEM', linestyle='--')
 	p6, = plt.plot(data6.Uy1, data6.Fy1, color='black', label='C6')
 	p62, = plt.plot(data62.Uy1, data62.Fy1, color='black', label='C6', linestyle='-.')
 	p6r, = plt.plot(data6f.Uy1, data6f.Fy1, color='black', label='C6', linestyle='--')
