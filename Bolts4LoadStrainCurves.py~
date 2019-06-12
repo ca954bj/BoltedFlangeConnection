@@ -19,7 +19,7 @@ for line in content:
 		for i in splited[3:-1]:
 			data[att][name][kind].append(float(i))
 			
-plt.figure(figsize=(11, 11))
+plt.figure(figsize=(11, 9))
 
 FirstGraph = ["G1", "G2"]
 SecondGraph = ["G3", "G4", "G5"]
