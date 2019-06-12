@@ -19,18 +19,20 @@ for line in content:
 		for i in splited[3:-1]:
 			data[att][name][kind].append(float(i))
 			
-plt.figure(figsize=(11, 9))
+plt.figure(figsize=(11, 4))
 
 FirstGraph = ["G1", "G2"]
 SecondGraph = ["G3", "G4", "G5"]
 
-ax1 = plt.subplot(2, 2, 1)
+ax1 = plt.subplot(1, 2, 1)
 plt.grid(linestyle='--')
 
 plt.xlim(-0.02,0.02)
 plt.ylim(0, 200)
-plt.xticks([-0.02, -0.01, 0, 0.01, 0.02],('-2%','-1%','0','1%','2%'), fontproperties=fontprop)
-plt.yticks([0, 50, 100, 150, 200], ('0', '50', '100', '150', '200'), fontproperties=fontprop)
+plt.xticks([-0.02, -0.015, -0.01, -0.005, 0, 0.005, 0.01, 0.015, 0.02],('-2', '-1.5', '-1', '0.5', '0', '0.5', '1', '1.5', '2'), fontproperties=fontprop)
+plt.yticks([0, 25, 50, 75, 100, 125, 150, 175, 200], fontproperties=fontprop)
+plt.xlabel('Strain (%)', fontproperties=fontprop)
+plt.ylabel('Tensile Load (kN)', fontproperties=fontprop)
 
 p1 = dict()
 for att, value1 in data.iteritems():
@@ -44,13 +46,15 @@ for att, value1 in data.iteritems():
 			length = min(len(data[att][name]['Strain']), len(data[att][name]['Load']))
 			plt.plot(data[att][name]['Strain'][0:length], data[att][name]["Load"][0:length], color='0', linestyle = thelinestyle, label=thelabel)
 
-ax2 = plt.subplot(2, 2, 2)
+ax2 = plt.subplot(1, 2, 2)
 plt.grid(linestyle='--')
 
 plt.xlim(-0.02,0.02)
 plt.ylim(0, 200)
-plt.xticks([-0.02, -0.01, 0, 0.01, 0.02],('-2%','-1%','0','1%','2%'), fontproperties=fontprop)
-plt.yticks([0, 50, 100, 150, 200], ('0', '50', '100', '150', '200'), fontproperties=fontprop)
+plt.xticks([-0.02, -0.015, -0.01, -0.005, 0, 0.005, 0.01, 0.015, 0.02],('-2', '-1.5', '-1', '0.5', '0', '0.5', '1', '1.5', '2'), fontproperties=fontprop)
+plt.yticks([0, 25, 50, 75, 100, 125, 150, 175, 200], fontproperties=fontprop)
+plt.xlabel('Strain (%)', fontproperties=fontprop)
+plt.ylabel('Tensile Load (kN)', fontproperties=fontprop)
 
 p2 = dict()
 for att, value1 in data.iteritems():
@@ -64,6 +68,6 @@ for att, value1 in data.iteritems():
 			length = min(len(data[att][name]['Strain']), len(data[att][name]['Load']))
 			plt.plot(data[att][name]["Strain"][0:length], data[att][name]["Load"][0:length], color='0', linestyle = thelinestyle, label=thelabel)
 
-plt.subplots_adjust(left=0.08, right=0.98, wspace=0.22, hspace=0.3, bottom=0.1, top=0.95)	
+plt.subplots_adjust(left=0.08, right=0.98, wspace=0.22, hspace=0.3, bottom=0.15, top=0.95)	
 print("Done")
 plt.show()
