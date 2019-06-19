@@ -7,8 +7,6 @@ inputfile2f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/s
 inputfile3 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C3-1ExpLoadDisp.txt"
 inputfile32 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C3-2ExpLoadDisp.txt"
 inputfile3f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/sf2fem.txt"
-inputfile3s6f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C3S6FELoadDisp.txt"
-inputfile3s8f = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt4/C3S8FELoadDisp.txt"
 
 inputfile4 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/NoSF.txt"
 inputfile42 = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/C4-2ExpLoadDisp.txt"
@@ -44,27 +42,55 @@ data5f = readfile(inputfile5f, difflimit)
 data6 = readfile(inputfile6, difflimit)
 data62 = readfile(inputfile62, difflimit)
 data6f = readfile(inputfile6f, difflimit)
-data6s6f = readfile(inputfile3s6f, difflimit)
-data6s8f = readfile(inputfile3s8f, difflimit)
 
 plt.figure(figsize=(11, 5))
 ax1 = plt.subplot(1, 2, 1)
 #plt.plot(Uy1[0:-180], Fy1[0:-180])
+
+if style == 'Color':
+	p1, = plt.plot(data1.Uy1, data1.Fy1, color='b', label='C1')
+	p1r, = plt.plot(data1f.Uy1, data1f.Fy1, color='b', label='C1', linestyle='--')
+	p2, = plt.plot(data2.Uy1, data2.Fy1, color='g', label='C2')
+	p2r, = plt.plot(data2f.Uy1, data2f.Fy1, color='g', label='C2', linestyle='--')
+	p3, = plt.plot(data3.Uy1, data3.Fy1, color='r', label='C3')
+	p3r, = plt.plot(data3f.Uy1, data3f.Fy1, color='r', label='C3', linestyle='--')
+elif style == 'BlackWithMarker':
+	p1, = plt.plot(data1.Uy1, data1.Fy1, color='black', label='C1', marker='^', markersize=10, markevery=(40, 20))
+	p12, = plt.plot(data12.Uy1, data12.Fy1, color='black', label='C1', linestyle='-.', marker='^', markersize=10, markevery=(40, 20))
+	p1r, = plt.plot(data1f.Uy1, data1f.Fy1, color='black', label='C1', linestyle='--', marker='^', markersize=10, markevery=(12, 7))
+	p2, = plt.plot(data2.Uy1, data2.Fy1, color='black', label='C2', marker='v', markersize=10, markevery=(300, 300))
+	p22, = plt.plot(data22.Uy1, data22.Fy1, color='black', label='C2', linestyle='-.', marker='v', markersize=10, markevery=(300, 300))
+	p2r, = plt.plot(data2f.Uy1, data2f.Fy1, color='black', label='C2', linestyle='--', marker='v', markersize=10, markevery=(12, 5))
+	p3, = plt.plot(data3.Uy1, data3.Fy1, color='black', label='C3', marker='o', markersize=10, markevery=(35, 200))
+	p32, = plt.plot(data32.Uy1, data32.Fy1, color='black', label='C3', linestyle='-.', marker='o', markersize=10, markevery=(35, 200))
+	p3r, = plt.plot(data3f.Uy1, data3f.Fy1, color='black', label='C3', linestyle='--', marker='o', markersize=10, markevery=(11, 5))
 	
-p1r, = plt.plot(data1f.Uy1, data1f.Fy1, color='black', label='C1', linestyle='-', marker='o', markersize=10, markevery=(15, 5))
-p2r, = plt.plot(data2f.Uy1, data2f.Fy1, color='black', label='C2', linestyle='-', marker='v', markersize=10, markevery=(9, 5))
-p3r, = plt.plot(data3f.Uy1, data3f.Fy1, color='black', label='C3', linestyle='-', marker='^', markersize=10, markevery=(15, 5))
-p4r, = plt.plot(data6s6f.Uy1, data6s6f.Fy1, color='black', label='C3S6', linestyle='-', marker='s', markersize=10, markevery=(19, 5))
-p5r, = plt.plot(data6s8f.Uy1, data6s8f.Fy1, color='black', label='C3S8', linestyle='-', marker='p', markersize=10, markevery=(19, 5))
+	firstlegend = plt.legend(handles=[p1, p2, p3], loc=1, bbox_to_anchor=(0.514, 0.38), prop=fontprop, title='Exp1:', frameon=False)
+	thirdlegend = plt.legend(handles=[p12, p22, p32], loc=1, bbox_to_anchor=(0.757, 0.38), prop=fontprop, title='Exp2:', frameon=False)
+	secondlegend = plt.legend(handles=[p1r, p2r, p3r], loc=1, bbox_to_anchor=(1.0, 0.38), prop=fontprop, title='FEM:', frameon=False)
+	plt.gca().add_artist(firstlegend)
+	plt.gca().add_artist(secondlegend)
+	plt.gca().add_artist(thirdlegend)
 	
-firstlegend = plt.legend(handles=[p1r, p2r, p3r, p4r, p5r], loc=1, bbox_to_anchor=(1.0, 0.4), prop=fontprop, frameon=False)
-plt.gca().add_artist(firstlegend)
+elif style == 'BlackWithoutMarker':
+	p1, = plt.plot(data1.Uy1, data1.Fy1, color='black', label='Exp1')
+	p12, = plt.plot(data12.Uy1, data12.Fy1, color='black', label='Exp2', linestyle='-.')
+	p1r, = plt.plot(data1f.Uy1, data1f.Fy1, color='black', label='FEM', linestyle='--')
+	p2, = plt.plot(data2.Uy1, data2.Fy1, color='black', label='C2')
+	p22, = plt.plot(data22.Uy1, data22.Fy1, color='black', label='C2', linestyle='-.')
+	p2r, = plt.plot(data2f.Uy1, data2f.Fy1, color='black', label='C2', linestyle='--')
+	p3, = plt.plot(data3.Uy1, data3.Fy1, color='black', label='C3')
+	p32, = plt.plot(data32.Uy1, data32.Fy1, color='black', label='C3', linestyle='-.')
+	p3r, = plt.plot(data3f.Uy1, data3f.Fy1, color='black', label='C3', linestyle='--')
+	
+	firstlegend = plt.legend(handles=[p1, p12, p1r], loc=1, bbox_to_anchor=(1.0, 0.3), prop=fontprop, frameon=False)
+	plt.gca().add_artist(firstlegend)
 
 plt.grid(linestyle='--')
-plt.ylim(0, 250)
+plt.ylim(0, 200)
 plt.xlim(0, 4)
 plt.xticks([0, 1, 2, 3, 4], fontproperties=fontprop)
-plt.yticks([0, 50, 100, 150, 200, 250], fontproperties=fontprop)
+plt.yticks([0, 50, 100, 150, 200], fontproperties=fontprop)
 plt.xlabel('Axial Extension (mm)', fontproperties=fontprop)
 plt.ylabel('Axial Force (kN)', fontproperties=fontprop)
 ax1.yaxis.set_label_coords(-0.1, 0.5)
@@ -103,7 +129,7 @@ elif style == 'BlackWithoutMarker':
 	p4r, = plt.plot(data4f.Uy1, data4f.Fy1, color='black', label='FEM', linestyle='--')
 	p5, = plt.plot(data5.Uy1, data5.Fy1, color='black', label='Exp1')
 	p52, = plt.plot(data52.Uy1, data52.Fy1, color='black', label='Exp2', linestyle='-.')
-	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='FE', linestyle='--')
+	p5r, = plt.plot(data5f.Uy1, data5f.Fy1, color='black', label='FEM', linestyle='--')
 	p6, = plt.plot(data6.Uy1, data6.Fy1, color='black', label='C6')
 	p62, = plt.plot(data62.Uy1, data62.Fy1, color='black', label='C6', linestyle='-.')
 	p6r, = plt.plot(data6f.Uy1, data6f.Fy1, color='black', label='C6', linestyle='--')
