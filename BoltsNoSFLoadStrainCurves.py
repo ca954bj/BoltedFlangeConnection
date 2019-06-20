@@ -1,6 +1,6 @@
 execfile('Curvesetup.py')
 
-fn = "/media/chenting/Work/Structural Engineering/Bolt Analysis/Bolt8/Bolts8Strains.txt"
+fn = "/media/chenting/Work/Structural Engineering/Bolt Analysis/BoltsNoSFStrains.txt"
 data = dict()
 data["FE"] = dict()
 data["Exp"] = dict()
@@ -21,16 +21,16 @@ for line in content:
 			
 plt.figure(figsize=(11, 4))
 
-FirstGraph = ["G12", "G13", "G14"]
-SecondGraph = ["G15", "G16"]
+FirstGraph = ["G1", "G2", "G3"]
+SecondGraph = ["G9", "G10", "G11"]
 
 ax1 = plt.subplot(1, 2, 1)
 plt.grid(linestyle='--')
 
 plt.xlim(-0.02,0.02)
-plt.ylim(0, 500)
+plt.ylim(0, 200)
 plt.xticks([-0.02, -0.015, -0.01, -0.005, 0, 0.005, 0.01, 0.015, 0.02],('-2', '-1.5', '-1', '0.5', '0', '0.5', '1', '1.5', '2'), fontproperties=fontprop)
-plt.yticks([0, 100, 200, 300, 400, 500], fontproperties=fontprop)
+plt.yticks([0, 25, 50, 75, 100, 125, 150, 175, 200], fontproperties=fontprop)
 plt.xlabel('Strain (%)', fontproperties=fontprop)
 plt.ylabel('Tensile Load (kN)', fontproperties=fontprop)
 
